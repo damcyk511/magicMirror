@@ -1,0 +1,100 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+    <?php include('modules/spotify/spotify.php'); ?>
+    <?php include('modules/rss/rss.php'); ?>
+    <?php include('modules/psn/psn.php'); ?>
+    <?php include('modules/weather/weather.php'); ?>
+    <?php include('modules/currenciesRate/currenciesRate.php'); ?>
+    <?php include('modules/compliments/compliments.php'); ?>
+
+    <script>
+    /*  var i = 0;
+      setInterval(function()
+      {
+          $('#rss'+i).load(' #rss'+i);  //$('#spotify').fadeOut("slow").load(' #spotify').fadeIn("slow");
+          if(i == 0){
+              $('#rss'+i).show().fadeIn('slow');
+          } else {
+            $('#rss'+i-1).hide().fadeOut('fast');
+            $('#rss'+i).show().fadeIn('slow');
+          }
+          i = i + 1;
+          if (i == 10){
+            i = 0;
+          }
+          console.log('rss'+i)
+      }, 2000);
+*/
+      setInterval(function()
+      {
+          $('#currenciesRate').load(' #currenciesRate');
+          console.log('Currecnies updated');
+      }, 60*5000);
+
+      setInterval(function()
+      {
+          $('#spotify').load(' #spotify'); //$('#spotify').fadeOut("slow").load(' #spotify').fadeIn("slow");
+      }, 1000);
+
+      setInterval(function()
+      {
+          $('#compliments').load(' #compliments'); //$('#spotify').fadeOut("slow").load(' #spotify').fadeIn("slow");
+      }, 10*1000);
+
+    </script>
+
+    <?php
+      $spotifyModule = new spotify();
+      $spotifyData = $spotifyModule->getSpotifyData();
+
+      $rssModule = new rss();
+      $rssData = $rssModule->getRssData();
+
+      $psnModule = new psn();
+      $psnData = $psnModule->getPsnData();
+
+      $weatherModule = new weather();
+      $weatherData = $weatherModule->getWeatherData();
+
+      $currenciesRateModule = new currenciesRate();
+      $currenciesRateData = $currenciesRateModule->getCurrenciesRate();
+
+      $complimentsModule = new compliments();
+      $complimentsData = $complimentsModule->getCompliments();
+    ?>
+</head>
+
+<body>
+  <div id ='compliments'>
+    <?php echo $complimentsData ?>
+	</div>
+
+	<div id ='weather'>
+	   <?php echo $weatherData ?>
+	</div>
+
+  <div id = "currenciesRate">
+    <?php echo $currenciesRateData ?>
+  </div>
+
+  <div id = "psn">
+    <?php echo $psnData ?>
+  </div>
+
+  <div id = "spotify">
+    <?php echo $spotifyData ?>
+  </div>
+
+  <div id = "rss">
+    <?php echo $rssData ?>
+  </div>
+</body>
+
+</html>
