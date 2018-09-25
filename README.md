@@ -1,2 +1,1 @@
-# magicMirror
-# magicMirror
+będzie tu dużo rzeczy! :D
