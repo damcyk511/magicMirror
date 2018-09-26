@@ -30,7 +30,7 @@ class rss {
       $rssChanelLength = sizeof($obj->items);
 
       for($j = 0; $j < $rssChanelLength; $j++){
-        $rssSource       = str_replace('"', '', json_encode($obj->feed->title, $param));
+        $rssSource       = str_replace('"', '', json_encode($obj->feed->copyright, $param));
         $newsTitle       = str_replace('"', '', json_encode($obj->items[$j]->title, $param));
         $newsDescription = str_replace('"', '', json_encode($obj->items[$j]->description, $param));
         $newsDate        = str_replace('"', '', json_encode($obj->items[$j]->pubDate, $param));
@@ -53,6 +53,20 @@ class rss {
     }
     $newsPoolLength = sizeof($newsPool);
     $randomNews = $newsPool[rand(0,$newsPoolLength-1)];
+    $randomNews =
+    '<center><span class = "rss">'.
+        '<div id = "rssTitle">'.
+          'Możliwa zmowa rynkowa między BMW, Daimlerem i Volkswagenem. KE wszczęła dochodzenie'.//$newsTitle.
+        '</div>'.
+
+        '<div id = "rssDescription">'.
+          'Komisja Europejska wszczęła we wtorek dochodzenie ws. możliwej zmowy rynkowej między niemieckimi koncernami BMW, Daimlerem i VW, która miałaby dotyczyć technologii ograniczających emisje spalin. KE sprawdzi, czy firmy naruszyły unijne przepisy antymonopolowe. Unijne przepisy zakazują tworzenie karteli i zmów cenowych. Dochodzenie ma być przeprowadzone w trybie pilnym.'.//$newsDescription.
+        '</div>'.
+
+        '<div id = "rssDetails">'.
+          '<br/>Polsat News - 2 godz. temu'.
+        '</div>'.
+    '</span></center>';
     return $randomNews;
   }
 }

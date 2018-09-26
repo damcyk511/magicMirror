@@ -16,9 +16,8 @@ class spotify {
 
     if($isNowPlaying != "null" && $isNowPlaying == true){
       $html =
-      '<h1>Spotify <i class="fab fa-spotify"></i></h1>
-
-        <div id = "spotifySongName">'
+      //'<h1>Spotify <i class="fab fa-spotify"></i></h1>
+        '<div id = "spotifySongName">'
           .$songName.'<br>
         </div>
 
