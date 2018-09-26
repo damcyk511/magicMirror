@@ -1,4 +1,5 @@
 <?php
+//refaktoryzacja kodu!!
 class spotify {
 
   public function getSpotifyData(){
