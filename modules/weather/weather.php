@@ -12,7 +12,7 @@ class weather {
     for($i = 0; $i < 5; $i++){
       $date              = str_replace('"', '', json_encode($obj->DailyForecasts[$i]->Date));
       $weekDay           = date('l', strtotime($date));
-      $fahrenheitDegrees = json_encode($obj->DailyForecasts[$i]->Temperature->Maximum->Value);
+      $fahrenheitDegrees = json_encode($obj->DailyForecasts[$i]->Temperature->Maximum->Value); 
       $celsiusDegrees    = round(($fahrenheitDegrees - 32) * 5 / 9);
       $weatherStatus     = str_replace('"', '', json_encode($obj->DailyForecasts[$i]->Day->IconPhrase, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_ERROR_UTF8));
       $icon              = str_replace('"', '', json_encode($obj->DailyForecasts[$i]->Day->Icon, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_ERROR_UTF8));

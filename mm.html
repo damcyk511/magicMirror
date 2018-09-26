@@ -3,7 +3,7 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 
@@ -34,6 +34,11 @@
 */
       setInterval(function()
       {
+          $('#rss').load(' #rss');
+      }, 30*1000);
+
+      setInterval(function()
+      {
           $('#currenciesRate').load(' #currenciesRate');
           console.log('Currecnies updated');
       }, 60*5000);
@@ -41,7 +46,7 @@
       setInterval(function()
       {
           $('#spotify').load(' #spotify'); //$('#spotify').fadeOut("slow").load(' #spotify').fadeIn("slow");
-      }, 1000);
+      }, 1000000000);
 
       setInterval(function()
       {
@@ -57,11 +62,11 @@
       $rssModule = new rss();
       $rssData = $rssModule->getRssData();
 
-      $psnModule = new psn();
-      $psnData = $psnModule->getPsnData();
+      //$psnModule = new psn();
+      //$psnData = $psnModule->getPsnData();
 
-      $weatherModule = new weather();
-      $weatherData = $weatherModule->getWeatherData();
+      //$weatherModule = new weather();
+      //$weatherData = $weatherModule->getWeatherData();
 
       $currenciesRateModule = new currenciesRate();
       $currenciesRateData = $currenciesRateModule->getCurrenciesRate();
@@ -72,10 +77,6 @@
 </head>
 
 <body>
-  <div id ='compliments'>
-    <?php echo $complimentsData ?>
-	</div>
-
 	<div id ='weather'>
 	   <?php echo $weatherData ?>
 	</div>
@@ -90,6 +91,10 @@
 
   <div id = "spotify">
     <?php echo $spotifyData ?>
+  </div>
+
+  <div id ='compliments'>
+    <?php echo $complimentsData ?>
   </div>
 
   <div id = "rss">

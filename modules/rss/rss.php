@@ -3,6 +3,9 @@
 //pętla - licznik newsów
 //inne źródła
 //ile godzin temu
+//zwracać 2 newsy
+//przepisać kod na nowo z większą liczbą kanałów
+// iteracja po wszystkich kanałach --> dodanie wszystkich newsów do jednej tablicy --> przesłanie dalej jednego losowego
 class rss {
 
   public function getRssData(){
@@ -20,7 +23,7 @@ class rss {
       $newsDate        = str_replace('"', '', json_encode($obj->items[$i]->pubDate, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_ERROR_UTF8));
 
       $html[] =
-      "<div id = 'rss".$i."' style = 'display: none'>
+      "<div id = 'rss".$i."'>
           <h2>".$newsTitle."</h2>".
           $newsDescription."<br>".
           $newsDate." ".$rssSource."<br>

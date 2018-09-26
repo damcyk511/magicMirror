@@ -15,11 +15,19 @@ class spotify {
 
     if($isNowPlaying != "null" && $isNowPlaying == true){
       $html =
-      "<h1>Spotify <i class='fab fa-spotify'></i></h1>
-      Utwór: ".$songName."<br>
-      Wykonawca: ".$artist."<br>
-      Album: ".$album."<br>
-      <img src = ".$coverImage.">";
+      '<h1>Spotify <i class="fab fa-spotify"></i></h1>
+
+        <div id = "spotifySongName">'
+          .$songName.'<br>
+        </div>
+
+        <div id = "spotifyAuthor">
+          ~ '.$artist.'<br>
+        </div>
+
+        <div id = "spotifyCoverImage">
+          <img src = "'.$coverImage.'">
+        </div>';
     }
     return $html;
   }
