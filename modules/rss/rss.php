@@ -36,11 +36,19 @@ class rss {
         $newsDate        = str_replace('"', '', json_encode($obj->items[$j]->pubDate, $param));
 
         $newsPool[] =
-        "<div class = 'rss'>
-            <h2>".$newsTitle."</h2>".
-            $newsDescription."<br>".
-            $newsDate." ".$rssSource."<br>
-        </div>";
+        '<span class = "rss">'.
+            '<div id = "rssTitle">'.
+              $newsTitle.
+            '</div>'.
+
+            '<div id = "rssDescription">'.
+              $newsDescription.
+            '</div>'.
+
+            '<div id = "rssDetails">'.
+              $rssSource.' '.$newsDate.
+            '</div>'.
+        '</span>';
       }
     }
     $newsPoolLength = sizeof($newsPool);

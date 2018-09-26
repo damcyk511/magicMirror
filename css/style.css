@@ -2,6 +2,18 @@
   font-size: 7em;
 }
 
+/* RSS */
+#rssTitle {
+    font-size: 1.5em;
+    font-style: italic;
+    font-weight: 600;
+}
+
+#rssDescription {
+    font-size: 1.2em;
+}
+
+/* Spotify */
 #spotifySongName {
     font-size: 1.5em;
     font-style: italic;
@@ -12,8 +24,4 @@
     font-size: 1.2em;
     margin-bottom: 15px;
     margin-top: -5px;
-}
-
-#spotifyAlbum {
-    font-size: 1.2em;
 }
