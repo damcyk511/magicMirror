@@ -30,7 +30,7 @@ class rss {
       $rssChanelLength = sizeof($obj->items);
 
       for($j = 0; $j < $rssChanelLength; $j++){
-        $rssSource       = str_replace('"', '', json_encode($obj->feed->title, $param));
+        $rssSource       = str_replace('"', '', json_encode($obj->feed->copyright, $param));
         $newsTitle       = str_replace('"', '', json_encode($obj->items[$j]->title, $param));
         $newsDescription = str_replace('"', '', json_encode($obj->items[$j]->description, $param));
         $newsDate        = str_replace('"', '', json_encode($obj->items[$j]->pubDate, $param));
