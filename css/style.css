@@ -4,11 +4,19 @@
 }
 
 #compliments {
+<<<<<<< HEAD
     font-size: 0.8em;
     position: absolute;
     width: 90%;
     left: 4%;
     top: 45%;
+=======
+    font-size: 1em;
+    position: absolute;
+    width: 90%;
+    left: 4%;
+    top: 40%;
+>>>>>>> 8d1f92ddaf85bca1c4f98080f9a1aa69a981fdc2
 }
 
 /* RSS */
@@ -24,18 +32,26 @@
     font-size: 1.3em;
     font-style: italic;
     font-weight: 600;
+<<<<<<< HEAD
     text-align: -webkit-center;
+=======
+    text-align: justify;
+>>>>>>> 8d1f92ddaf85bca1c4f98080f9a1aa69a981fdc2
     margin-bottom: 10px;
 }
 
 #rssDescription {
     font-size: 1.1em;
+<<<<<<< HEAD
     text-align: -webkit-center;
 }
 
 #rssDetails {
     text-align: -webkit-center;
     font-size: 1.1em;
+=======
+    text-align: justify;
+>>>>>>> 8d1f92ddaf85bca1c4f98080f9a1aa69a981fdc2
 }
 
 #rssDetails {

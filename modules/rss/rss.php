@@ -53,7 +53,25 @@ class rss {
       }
     }
     $newsPoolLength = sizeof($newsPool);
+<<<<<<< HEAD
     $randomNews     = $newsPool[rand(0,$newsPoolLength-1)];
+=======
+    $randomNews = $newsPool[rand(0,$newsPoolLength-1)];
+    $randomNews =
+    '<center><span class = "rss">'.
+        '<div id = "rssTitle">'.
+          'Możliwa zmowa rynkowa między BMW, Daimlerem i Volkswagenem. KE wszczęła dochodzenie'.//$newsTitle.
+        '</div>'.
+
+        '<div id = "rssDescription">'.
+          'Komisja Europejska wszczęła we wtorek dochodzenie ws. możliwej zmowy rynkowej między niemieckimi koncernami BMW, Daimlerem i VW, która miałaby dotyczyć technologii ograniczających emisje spalin. KE sprawdzi, czy firmy naruszyły unijne przepisy antymonopolowe. Unijne przepisy zakazują tworzenie karteli i zmów cenowych. Dochodzenie ma być przeprowadzone w trybie pilnym.'.//$newsDescription.
+        '</div>'.
+
+        '<div id = "rssDetails">'.
+          '<br/>Polsat News - 2 godz. temu'.
+        '</div>'.
+    '</span></center>';
+>>>>>>> 8d1f92ddaf85bca1c4f98080f9a1aa69a981fdc2
     return $randomNews;
   }
 
