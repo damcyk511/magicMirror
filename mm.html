@@ -3,7 +3,7 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 
@@ -19,7 +19,7 @@
       setInterval(function()
       {
           $('#rss').load(' #rss');
-      }, 10*100000000);
+      }, 10*100000);
 
       setInterval(function()
       {
@@ -46,8 +46,8 @@
       $rssModule = new rss();
       $rssData = $rssModule->getRssData();
 
-      //$psnModule = new psn();
-      //$psnData = $psnModule->getPsnData();
+      $psnModule = new psn();
+      $psnData = $psnModule->getPsnData();
 
       //$weatherModule = new weather();
       //$weatherData = $weatherModule->getWeatherData();
