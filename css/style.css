@@ -1,61 +1,83 @@
+/* Clock */
+#clock {
+  font-size: 4em;
+  top: 3%;
+  position: absolute;
+  left: 3%;
+}
+
+#clockHours {
+  display: inline-flex;
+  margin-right: -4px;
+}
+
+#clockSeparator {
+  margin-top: -6px;
+  display: inline-flex;
+  vertical-align: top;
+}
+
+#clockMinutes {
+  margin-left: -2px;
+  display: inline-flex;
+}
+
+#clockSeconds {
+  font-size: 0.4em;
+  margin-top: 10px;
+  display: inline-flex;
+  vertical-align: top;
+}
+
+#dayInfo {
+  font-size: 0.4em;
+  margin-bottom: -5px;
+  display: inherit;
+}
+
 /* Compliments  */
 .compliments {
   font-size: 7em;
 }
 
 #compliments {
-<<<<<<< HEAD
-    font-size: 0.8em;
-    position: absolute;
-    width: 90%;
-    left: 4%;
-    top: 45%;
-=======
-    font-size: 1em;
-    position: absolute;
-    width: 90%;
-    left: 4%;
-    top: 40%;
->>>>>>> 8d1f92ddaf85bca1c4f98080f9a1aa69a981fdc2
+  font-size: 0.8em;
+  position: absolute;
+  width: 90%;
+  left: 4%;
+  top: 45%;
 }
 
 /* RSS */
 #rss {
-    margin: 5px;
-    width: 60%;
-    position: fixed;
-    bottom: 0;
-    left: 17%;
+  margin: 5px;
+  width: 60%;
+  position: fixed;
+  bottom: 0;
+  left: 17%;
+  margin-bottom: 20px;
 }
 
 #rssTitle {
-    font-size: 1.3em;
-    font-style: italic;
-    font-weight: 600;
-<<<<<<< HEAD
-    text-align: -webkit-center;
-=======
-    text-align: justify;
->>>>>>> 8d1f92ddaf85bca1c4f98080f9a1aa69a981fdc2
-    margin-bottom: 10px;
+  font-size: 1.3em;
+  font-style: italic;
+  font-weight: 600;
+  text-align: -webkit-center;
+  margin-bottom: 10px;
 }
 
 #rssDescription {
-    font-size: 1.1em;
-<<<<<<< HEAD
-    text-align: -webkit-center;
+  font-size: 1.1em;
+  text-align: -webkit-center;
 }
 
 #rssDetails {
-    text-align: -webkit-center;
-    font-size: 1.1em;
-=======
-    text-align: justify;
->>>>>>> 8d1f92ddaf85bca1c4f98080f9a1aa69a981fdc2
+  text-align: -webkit-center;
+  font-size: 1.1em;
 }
 
 #rssDetails {
-  text-align: right;
+  text-align: -webkit-center;
   font-size: 1.1em;
 }
 
@@ -65,13 +87,13 @@
 }
 
 #spotifySongName {
-    font-size: 1.5em;
-    font-style: italic;
-    font-weight: 600;
+  font-size: 1.5em;
+  font-style: italic;
+  font-weight: 600;
 }
 
 #spotifyAuthor {
-    font-size: 1.2em;
-    margin-bottom: 15px;
-    margin-top: -5px;
+  font-size: 1.2em;
+  margin-bottom: 15px;
+  margin-top: -5px;
 }
