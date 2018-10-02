@@ -1,15 +1,17 @@
-function runClock () {
+// rozdzielic zegar i dayInfo
+function runClock() {
 
   var today = new Date();
   var h = today.getHours();
   var m = today.getMinutes();
   var s = today.getSeconds();
+  h = checkTime(h);
   m = checkTime(m);
   s = checkTime(s);
 //dzienTygodnia, dzien miesiaca rok
 
   var months = ["Stycznia", "Lutego", "Marca", "Kwietnia", "Maja", "Czerwca", "Lipca", "Sierpnia", "Września", "Października", "Listopada", "Grudnia"];
-  var weekDays = ["Poniedziałek", "Wtorek", "Środa", "Czwartek", "Piątek", "Sobota", "Niedziela"];
+  var weekDays = ["Niedziela", "Poniedziałek", "Wtorek", "Środa", "Czwartek", "Piątek", "Sobota"];
 
   var currentMonth = months[today.getMonth()];
   var currentMontDay = today.getDate();
@@ -17,7 +19,7 @@ function runClock () {
   var currentYear = today.getFullYear();
 
   document.getElementById('clock').innerHTML =
-  '<div id "dayInfo">' + currentWeekDay + ', ' +  currentMontDay + ' ' + currentMonth + ' ' + currentYear + '<br/></div>' +
+  '<div id = "dayInfo">' + currentWeekDay + ', ' +  currentMontDay + ' ' + currentMonth + ' ' + currentYear + '<br/></div>' +
   '<div id = "clockHours">' + h + '</div><div id = "clockSeparator">:</div><div id = "clockMinutes">' + m + '</div><div id = "clockSeconds">' + s + '</div>';
 
   var t = setTimeout(runClock, 500);

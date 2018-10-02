@@ -1,3 +1,8 @@
+
+body {
+  background: #131212;
+  color: white;
+}
 /* Clock */
 #clock {
   font-size: 4em;
@@ -6,13 +11,17 @@
   left: 3%;
 }
 
+#dayInfo {
+  font-size: 0.4em;
+  margin-bottom: -5px;
+  display: inherit;
+}
+
 #clockHours {
   display: inline-flex;
-  margin-right: -4px;
 }
 
 #clockSeparator {
-  margin-top: -6px;
   display: inline-flex;
   vertical-align: top;
 }
@@ -27,12 +36,6 @@
   margin-top: 10px;
   display: inline-flex;
   vertical-align: top;
-}
-
-#dayInfo {
-  font-size: 0.4em;
-  margin-bottom: -5px;
-  display: inherit;
 }
 
 /* Compliments  */
@@ -60,7 +63,6 @@
 
 #rssTitle {
   font-size: 1.3em;
-  font-style: italic;
   font-weight: 600;
   text-align: -webkit-center;
   margin-bottom: 10px;

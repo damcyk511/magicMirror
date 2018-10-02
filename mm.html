@@ -3,7 +3,7 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css?v=2" type="text/css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="modules/clock/clock.js"></script>
@@ -14,6 +14,7 @@
     <?php include('modules/weather/weather.php'); ?>
     <?php include('modules/currenciesRate/currenciesRate.php'); ?>
     <?php include('modules/compliments/compliments.php'); ?>
+    <?php include('modules/icsCalendar/icsCalendar.php'); ?>
 
     <script>
 
@@ -58,12 +59,20 @@
 
       $complimentsModule = new compliments();
       $complimentsData = $complimentsModule->getCompliments();
+
+      $icsCalendarModule = new icsCalendar();
+      $icsCalendarURL = "https://calendar.google.com/calendar/ical/hkvttoemaoagd85ui8bjgbhc1k%40group.calendar.google.com/private-e1f2f4ab1cb350a8129ed2f654d94fce/basic.ics";
+      $icsCalendarData = $icsCalendarModule->getIcsEventsAsArray($icsCalendarURL);
     ?>
 </head>
 
 <body>
   <div id ='clock'>
-    <script>runClock()</script>
+    <script>//runClock()</script>
+  </div>
+
+  <div id ='icsCalendar'>
+     <?php echo $icsCalendarData ?>
   </div>
 
 	<div id ='weather'>
@@ -83,11 +92,11 @@
   </div>
 
   <div id ='compliments'>
-    <?php echo $complimentsData ?>
+    <?php //echo $complimentsData ?>
   </div>
 
   <div id = "rss">
-    <?php echo $rssData ?>
+    <?php //echo $rssData ?>
   </div>
 </body>
 
