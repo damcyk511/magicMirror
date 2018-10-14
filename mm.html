@@ -17,7 +17,12 @@
     <?php include('modules/icsCalendar/icsCalendar.php'); ?>
 
     <script>
-
+/*
+      setInterval(function()
+      {
+          $('#icsCalendar').load(' #icsCalendar');
+      }, 60*1000);
+*/
       setInterval(function()
       {
           $('#rss').load(' #rss');
@@ -61,18 +66,23 @@
       $complimentsData = $complimentsModule->getCompliments();
 
       $icsCalendarModule = new icsCalendar();
-      $icsCalendarURL = "https://calendar.google.com/calendar/ical/hkvttoemaoagd85ui8bjgbhc1k%40group.calendar.google.com/private-e1f2f4ab1cb350a8129ed2f654d94fce/basic.ics";
-      $icsCalendarData = $icsCalendarModule->icsToDisplay($icsCalendarURL);
+      $icsCalendarURLWspolne = "https://calendar.google.com/calendar/ical/hkvttoemaoagd85ui8bjgbhc1k%40group.calendar.google.com/private-e1f2f4ab1cb350a8129ed2f654d94fce/basic.ics";
+      $icsCalendarDataWspolne = $icsCalendarModule->icsToDisplay($icsCalendarURLWspolne, 2);
+
+      $icsCalendarModule = new icsCalendar();
+      $icsCalendarURLDamian = "https://calendar.google.com/calendar/ical/n2fponl075lpgbeojm16m09suc%40group.calendar.google.com/private-ef113d40ffd8a8b690d74e407ff97f78/basic.ics";
+      $icsCalendarDataDamian = $icsCalendarModule->icsToDisplay($icsCalendarURLDamian, 2);
     ?>
 </head>
 
 <body>
   <div id ='clock'>
-    <script>//runClock()</script>
+    <script>runClock()</script>
   </div>
 
   <div id ='icsCalendar'>
-     <?php echo $icsCalendarData ?>
+     <?php echo $icsCalendarDataWspolne ?>
+     <?php echo $icsCalendarDataDamian ?>
   </div>
 
 	<div id ='weather'>
@@ -92,11 +102,11 @@
   </div>
 
   <div id ='compliments'>
-    <?php //echo $complimentsData ?>
+    <?php echo $complimentsData ?>
   </div>
 
   <div id = "rss">
-    <?php //echo $rssData ?>
+    <?php echo $rssData ?>
   </div>
 </body>
 

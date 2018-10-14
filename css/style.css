@@ -38,6 +38,38 @@ body {
   vertical-align: top;
 }
 
+/* ICS Calendar*/
+#icsCalendar {
+  position: absolute;
+  top: 15%;
+  left: 3%;
+  width: 460px;
+  font-size: 1.2em;
+}
+
+#icsCalendarSummary {
+  font-size: 1.2em;
+  display: inline;
+}
+
+#icsCalendarTime {
+  display: inline;
+  margin-left: 50px;
+}
+
+#icsCalendarActive {
+  display: inline;
+  color: yellow;
+}
+
+#iscSumTd{
+  width: 220px;
+}
+
+#iscCalendarTable{ 
+  margin-top: -20px;
+}
+
 /* Compliments  */
 .compliments {
   font-size: 7em;

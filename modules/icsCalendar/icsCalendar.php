@@ -2,15 +2,39 @@
 
 class icsCalendar {
 
-  function icsToDisplay($icsFile) {
+  function icsToDisplay($icsFile, $amountEventsToDisplay = 2) {
 
-    /* */
+    /* Funkcja zwraca właściwe wydarzenia z kalendarza w formie. */
 
     $uglyArray    = $this->getIcsEventsAsArray($icsFile);
     $cleanArray   = $this->prepareIcs($uglyArray);
     $sortedEvents = $this->bubbleSort($cleanArray);
+    $nextEvents   = $this->getNextEvents($sortedEvents, $amountEventsToDisplay);
 
-    return print_r($sortedEvents);
+    $nextEventsLength = sizeof($nextEvents);
+    $html .= '<table id = "iscCalendarTable">';
+    for($i = 0; $i < $nextEventsLength; $i++){
+      $activeToHTML = '';
+      if($nextEvents[$i]['activeEvent']) {
+        $activeToHTML = '<div id =  "icsCalendarActive"> (Trwa)</div>';
+      }
+      $html .= '<tr>';
+      $html .= '<td id = "iscSumTd">';
+      $html .= '<div id = "icsCalendarSummary"><i class="far fa-calendar"></i> '.$nextEvents[$i]['summary'].$activeToHTML.'</div>';
+      $html .= '</td>';
+      $html .= '<td id = "icsCalendarTime">';
+      if($nextEvents[$i]['activeEvent']) {
+        $html .= 'Koniec za '.$nextEvents[$i]['timeToEnd'];
+      } else {
+        $html .= 'Początek za '.$nextEvents[$i]['timeToStart'];
+      }
+      $html .= '</td>';
+      $html .= '</tr>';
+      $html .= '<br/>';
+    }
+    $html .= '</table>';
+
+    return $html;
 
   }
 
@@ -65,6 +89,7 @@ class icsCalendar {
           if($icsDates[$i]["SUMMARY"]){
             if($icsDates[$i]["DTSTART"] || $icsDates[$i]["DTSTART;VALUE=DATE"]){
 
+                $summary   = $icsDates[$i]["SUMMARY"];
                 $startTime = $icsDates[$i]["DTSTART"];
                 if($icsDates[$i]["DTSTART;VALUE=DATE"]) {
                   $startTime = $icsDates[$i]["DTSTART;VALUE=DATE"];
@@ -92,33 +117,49 @@ class icsCalendar {
                 $activeEvent = false;
                 if($currentTimestamp < $endTimestamp) {
                   if ($currentTimestamp > $startTimestamp){
-                    $activeEvent = '<span style="color: yellow">Trwa </span>- ';
+                    $activeEvent = true;
                   }
                 }
 
-                $intervalValue = $this->dateDifference($currentDate, $endDate);
+                $intervalValueStart = $this->dateDifference($currentDate, $endDate);
 
                 $timeToEnd = '';
-                if($activeEvent) $timeToEnd = '<br/><span style="color: yellow">Koniec za '.$intervalValue.'</span>';
+                if($activeEvent) $timeToEnd = $intervalValueStart;
 
-                //$startDate
-                //$endDate
-                //$currentDate
-                //$activeEvent
-                //$timeToEnd
-                //$timeToStart -- do zrobienia  -- "Początek za: 5 dni."
-                /*
-                if($activeEvent){
-                  $html .= Obiad w Koszykach -- koniec za 2 godziny;
-                }
-                */
+                $intervalValueEnd = $this->dateDifference($currentDate, $startDate);
+                $timeToStart = $intervalValueEnd;
+
+                $eventList[$i]['summary']        = $summary;
+                $eventList[$i]['startDate']      = $startDate;
+                $eventList[$i]['endDate']        = $endDate;
+                $eventList[$i]['timeToEnd']      = $timeToEnd;
+                $eventList[$i]['timeToStart']    = $timeToStart;
                 $eventList[$i]['startTimestamp'] = $startTimestamp;
-                $eventList[$i]['html'] = $activeEvent.$icsDates[$i]["SUMMARY"]."</br>Początek: ".$startDate.'</br> Koniec: '.$endDate.$timeToEnd.'</br></br>';
+                $eventList[$i]['activeEvent']    = $activeEvent;
             }
           }
         }
         return $eventList;
     }
+
+  function getNextEvents($eventList, $amountEventsToReturn = 2) {
+    
+    /* Funkcja zwraca żądaną ilość zdarzeń */
+
+    $currentTimestamp = time();
+    $eventListLength = sizeof($eventList);
+
+    for($i = 0; $i < $eventListLength; $i++) {
+      if($eventList[$i]['activeEvent'] || $eventList[$i]['startTimestamp'] > $currentTimestamp) {
+         $nextEvents[] = $eventList[$i];
+      }
+    }
+
+    for($i = 0; $i < $amountEventsToReturn; $i++){
+      $eventsToReturn[] = $nextEvents[$i];
+    }
+    return $eventsToReturn;
+  }
 
   function dateDifference($startDate, $endDate) {
 
@@ -141,9 +182,9 @@ class icsCalendar {
              if ($interval->d > 1)  $intervalValue =  $interval->d.' dni';
         else if ($interval->d == 1) $intervalValue =  $interval->d.' dzień';
         else if ($interval->d == 0) {
-               if ($interval->h > 4)  $intervalValue =  $interval->h.' godzin';
-          else if ($interval->h == 1) $intervalValue =  $interval->h.' godzinę';
-          else if ($interval->h > 1)  $intervalValue =  $interval->h.' godziny';
+               if ($interval->h > 4)  $intervalValue =  $interval->h.' godz.';
+          else if ($interval->h == 1) $intervalValue =  $interval->h.' godz.';
+          else if ($interval->h > 1)  $intervalValue =  $interval->h.' godz.';
           else if ($interval->h == 0) {
                  if ($interval->i > 4)  $intervalValue =  $interval->i.' minut';
             else if ($interval->i == 1) $intervalValue =  $interval->i.' minutę';
