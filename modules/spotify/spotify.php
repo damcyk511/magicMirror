@@ -15,7 +15,7 @@ class spotify {
     $isNowPlaying = str_replace('"', '', json_encode($obj['recenttracks']['track'][0]['@attr']['nowplaying']));
 
     if($isNowPlaying != "null" && $isNowPlaying == true){
-      $html =
+      $spotifyData['html'] =
       //'<h1>Spotify <i class="fab fa-spotify"></i></h1>
         '<div id = "spotifySongName">'
           .$songName.'<br>
@@ -28,12 +28,17 @@ class spotify {
         <div id = "spotifyCoverImage">
           <img src = "'.$coverImage.'">
         </div>';
+        $spotifyData['$isNowPlaying'] = $isNowPlaying;
+        return $spotifyData;
     }
-    return $html;
+    $spotifyData['html'] = '';
+    $spotifyData['isNowPlaying'] = $isNowPlaying;
+    return $spotifyData;
   }
 }
 /*$spotifyData{
     html     ->
     position ->
 }*/
+
 ?>

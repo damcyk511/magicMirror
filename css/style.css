@@ -41,10 +41,12 @@ body {
 /* ICS Calendar*/
 #icsCalendar {
   position: absolute;
-  top: 15%;
+  /*top: 15%;*/
+  top: 8em;
   left: 3%;
   width: 460px;
-  font-size: 1.2em;
+  font-size: 1em;
+  margin-top: 35px;
 }
 
 #icsCalendarSummary {
@@ -55,6 +57,7 @@ body {
 #icsCalendarTime {
   display: inline;
   margin-left: 50px;
+  font-size: 1.1em;
 }
 
 #icsCalendarActive {
@@ -66,8 +69,15 @@ body {
   width: 220px;
 }
 
-#iscCalendarTable{ 
-  margin-top: -20px;
+#iscCalendarTable {
+  margin-top: -30px;
+  border-top: 2px solid white;
+  padding-top: 10px;
+  margin-bottom: 25px;
+}
+
+#icsCalendarName {
+  font-size: 1.2em;
 }
 
 /* Compliments  */
@@ -80,7 +90,7 @@ body {
   position: absolute;
   width: 90%;
   left: 4%;
-  top: 45%;
+  top: 50%;
 }
 
 /* RSS */

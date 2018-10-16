@@ -2,7 +2,7 @@
 
 class icsCalendar {
 
-  function icsToDisplay($icsFile, $amountEventsToDisplay = 2) {
+  function icsToDisplay($icsFile, $calendarName = '#calendarName', $amountEventsToDisplay = 2) {
 
     /* Funkcja zwraca właściwe wydarzenia z kalendarza w formie. */
 
@@ -12,15 +12,12 @@ class icsCalendar {
     $nextEvents   = $this->getNextEvents($sortedEvents, $amountEventsToDisplay);
 
     $nextEventsLength = sizeof($nextEvents);
+    $html .= '<div id = "icsCalendarName">'.$calendarName.'</div>';
     $html .= '<table id = "iscCalendarTable">';
     for($i = 0; $i < $nextEventsLength; $i++){
-      $activeToHTML = '';
-      if($nextEvents[$i]['activeEvent']) {
-        $activeToHTML = '<div id =  "icsCalendarActive"> (Trwa)</div>';
-      }
       $html .= '<tr>';
       $html .= '<td id = "iscSumTd">';
-      $html .= '<div id = "icsCalendarSummary"><i class="far fa-calendar"></i> '.$nextEvents[$i]['summary'].$activeToHTML.'</div>';
+      $html .= '<div id = "icsCalendarSummary"><i class="far fa-calendar"></i> '.$nextEvents[$i]['summary'].'</div>';
       $html .= '</td>';
       $html .= '<td id = "icsCalendarTime">';
       if($nextEvents[$i]['activeEvent']) {
