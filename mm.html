@@ -17,12 +17,31 @@
     <?php include('modules/icsCalendar/icsCalendar.php'); ?>
 
     <script>
-/*
-      setInterval(function()
-      {
-          $('#icsCalendar').load(' #icsCalendar');
-      }, 60*1000);
-*/
+
+      function hideCompliments() { 
+        document.getElementById("compliments").style.display = "none"; 
+      } 
+
+      function showCompliments() { 
+        document.getElementById("compliments").style.display = ""; 
+      } 
+
+      function replaceComplimentsWithSpotify() {
+        setInterval(function(){
+          var isSpotifyRuning = document.getElementById('spotifyAuthor');
+          if(isSpotifyRuning != null){
+            console.log('Spotify: Runing');
+            hideCompliments();
+            document.getElementById("spotify").style.left = '30%';
+            document.getElementById("spotify").style.top = '48%';
+            document.getElementById("spotify").style.position = 'fixed';
+          } else {
+            showCompliments();
+            console.log('Spotify: Stopped');
+          }
+        }, 1000);
+      }
+
       setInterval(function()
       {
           $('#rss').load(' #rss');
@@ -102,12 +121,12 @@
     <?php echo $psnData ?>
   </div>
 
-  <div id = "spotify">
-    <?php echo $spotifyData['html'] ?>
-  </div>
-
   <div id ='compliments'>
     <?php echo $complimentsData ?>
+  </div>
+
+  <div id = "spotify">
+    <?php echo $spotifyData['html'] ?>
   </div>
 
   <div id = "rss">

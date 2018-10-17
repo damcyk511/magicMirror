@@ -2,7 +2,7 @@
 
 class icsCalendar {
 
-  function icsToDisplay($icsFile, $calendarName = '#calendarName', $amountEventsToDisplay = 2) {
+  public function icsToDisplay($icsFile, $calendarName = '#calendarName', $amountEventsToDisplay = 2) {
 
     /* Funkcja zwraca właściwe wydarzenia z kalendarza w formie. */
 
@@ -35,7 +35,7 @@ class icsCalendar {
 
   }
 
-  function getIcsEventsAsArray($file) {
+  public function getIcsEventsAsArray($file) {
 
     /* Funkcja pobiera plik .ics, a następnie konwertuje go na tablicę. */
 
@@ -58,7 +58,7 @@ class icsCalendar {
     return $icsDates;
   }
 
-  function getICSDates($key, $subKey, $subValue, $icsDates) {
+  public function getICSDates($key, $subKey, $subValue, $icsDates) {
 
     /* Funkcja wykonuje dodatkowe walidacje na pliku .ics. */
 
@@ -76,7 +76,7 @@ class icsCalendar {
     return $icsDates;
   }
 
-    function prepareIcs($icsDates) {
+  public function prepareIcs($icsDates) {
 
       /* Funkcja wyciąga wyłącznie potrzebne dane z całej przekonwertowanej tablicy */
 
@@ -139,7 +139,7 @@ class icsCalendar {
         return $eventList;
     }
 
-  function getNextEvents($eventList, $amountEventsToReturn = 2) {
+    public function getNextEvents($eventList, $amountEventsToReturn = 2) {
     
     /* Funkcja zwraca żądaną ilość zdarzeń */
 
@@ -158,7 +158,7 @@ class icsCalendar {
     return $eventsToReturn;
   }
 
-  function dateDifference($startDate, $endDate) {
+  public function dateDifference($startDate, $endDate) {
 
     /* Funkcja oblicza ilość czasu między dwoma datami */
 
@@ -193,7 +193,7 @@ class icsCalendar {
     return $intervalValue;
   }
 
-  function bubbleSort($array) {
+  public function bubbleSort($array) {
 
     /* Funkcja sortuje tablicę na podstawie czasu rozpoczęcia zdarzenia */
 

@@ -20,7 +20,7 @@ class spotify {
         '<div id = "spotifySongName">'
           .$songName.'<br>
         </div>
-
+        <script>replaceComplimentsWithSpotify()</script>
         <div id = "spotifyAuthor">
           ~ '.$artist.'<br>
         </div>
@@ -31,7 +31,7 @@ class spotify {
         $spotifyData['$isNowPlaying'] = $isNowPlaying;
         return $spotifyData;
     }
-    $spotifyData['html'] = '';
+    $spotifyData['html'] = '<script>replaceComplimentsWithSpotify()</script>';
     $spotifyData['isNowPlaying'] = $isNowPlaying;
     return $spotifyData;
   }
