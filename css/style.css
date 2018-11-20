@@ -3,6 +3,23 @@ body {
   background: #131212;
   color: white;
 }
+/* Weather */
+#weather {
+  float: right;
+}
+
+#weatherDegreesDay {
+  width: 70px;
+}
+
+#weatherTable {
+  font-size: 1.3em;
+}
+
+#weatherDegreesNow {
+  font-size: 2.4em;
+}
+
 /* Clock */
 #clock {
   font-size: 4em;

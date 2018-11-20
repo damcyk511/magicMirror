@@ -51,7 +51,7 @@
       {
           $('#currenciesRate').load(' #currenciesRate');
           console.log('Currecnies updated');
-      }, 60*5000);
+      }, 60*1000);
 
       setInterval(function()
       {
@@ -75,8 +75,8 @@
       //$psnModule = new psn();
       //$psnData = $psnModule->getPsnData();
 
-      //$weatherModule = new weather();
-      //$weatherData = $weatherModule->getWeatherData();
+      $weatherModule = new weather();
+      $weatherData = $weatherModule->getWeatherData();
 
       $currenciesRateModule = new currenciesRate();
       $currenciesRateData = $currenciesRateModule->getCurrenciesRate();
@@ -96,6 +96,7 @@
       $icsCalendarURLKasia  = "https://calendar.google.com/calendar/ical/i31j04ql27rakp94olfprdb37s%40group.calendar.google.com/private-4bc83433af07f13aa077ab1a6a83714f/basic.ics";
       $icsCalendarDataKasia = $icsCalendarModule->icsToDisplay($icsCalendarURLKasia, 'Kasia', 2);
     ?>
+    
 </head>
 
 <body>

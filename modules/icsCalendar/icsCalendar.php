@@ -60,7 +60,7 @@ class icsCalendar {
 
   public function getICSDates($key, $subKey, $subValue, $icsDates) {
 
-    /* Funkcja wykonuje dodatkowe walidacje na pliku .ics. */
+    /* Funkcja wykonuje dodatkowe walidacje na pliku ics. */
 
     /* Źródło: */
     /* https://www.apptha.com/blog/import-google-calendar-events-in-php/ */
@@ -87,6 +87,8 @@ class icsCalendar {
             if($icsDates[$i]["DTSTART"] || $icsDates[$i]["DTSTART;VALUE=DATE"]){
 
                 $summary   = $icsDates[$i]["SUMMARY"];
+                $summary   = (strlen($summary) > 24) ? substr($summary,0,22).'..' : $summary;
+
                 $startTime = $icsDates[$i]["DTSTART"];
                 if($icsDates[$i]["DTSTART;VALUE=DATE"]) {
                   $startTime = $icsDates[$i]["DTSTART;VALUE=DATE"];
