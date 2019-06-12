@@ -4,7 +4,7 @@ class spotify {
 
   public function getSpotifyData(){
 
-    $jsonData     = "http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=damcyk511&api_key=7cf4573ce7dd9bfb671d0862f753c27c&format=json";
+    $jsonData     = "http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=damcyk511&api_key=####&format=json";
     $json         = file_get_contents($jsonData);
     $obj          = json_decode($json, true);
 
